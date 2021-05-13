@@ -26,9 +26,16 @@ export const createCompany = async (company) => {
     return data
 }
 
-export const fetchCompanies = async (typeId, brandId, page, limit= 5) => {
+// export const fetchCompanies = async (typeId, brandId, page, limit= 5) => {
+//     const {data} = await $host.get('api/company', {params: {
+//             typeId, brandId, page, limit
+//         }})
+//     return data
+// }
+
+export const fetchCompanies = async (typeId, brandId) => {
     const {data} = await $host.get('api/company', {params: {
-            typeId, brandId, page, limit
+            typeId, brandId
         }})
     return data
 }

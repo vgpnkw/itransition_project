@@ -31,25 +31,25 @@ class CompanyController {
     }
 
     async getAll(req, res) {
-        let {countryId, typeId, limit, page} = req.query
-        page = page || 1
-        limit = limit || 9
-        let offset = page * limit - limit
+        let {countryId, typeId} = req.query
+        // page = page || 1
+        // limit = limit || 5
+        // let offset = page * limit - limit
         let companies;
         if (!countryId && !typeId) {
-            //companies = await Company.findAndCountAll({limit, offset})
+            // companies = await Company.findAndCountAll({limit, offset})
              companies = await Company.findAll()
         }
         if (countryId && !typeId) {
-            //companies = await Company.findAndCountAll({where:{brandId}, limit, offset})
+            // companies = await Company.findAndCountAll({where:{countryId}, limit, offset})
              companies = await Company.findAll({where:{countryId}})
         }
         if (!countryId && typeId) {
-            //companies = await Company.findAndCountAll({where:{typeId}, limit, offset})
+            // companies = await Company.findAndCountAll({where:{typeId}, limit, offset})
             companies = await Company.findAll({where:{typeId}})
         }
         if (countryId && typeId) {
-            //companies = await Company.findAndCountAll({where:{typeId, brandId}, limit, offset})
+            // companies = await Company.findAndCountAll({where:{typeId, countryId}, limit, offset})
              companies = await Company.findAll({where:{countryId, typeId}})
         }
         return res.json(companies)

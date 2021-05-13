@@ -68,11 +68,9 @@ export default class CompanyStore {
     }
 
     setSelectedType(type) {
-        this.setPage(1)
         this._selectedType = type
     }
     setSelectedCountry(country) {
-        this.setPage(1)
         this._selectedCountry = country
     }
     setPage(page) {

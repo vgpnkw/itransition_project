@@ -16,18 +16,36 @@ const Shop = observer(() => {
     useEffect(() => {
         fetchTypes().then(data => company.setTypes(data))
         fetchCountries().then(data => company.setCountries(data))
-        fetchCompanies(null, null, 1, 2).then(data => {
-            company.setCompanies(data.rows)
-            company.setTotalCount(data.count)
+        fetchCompanies(null, null).then(data => {
+            company.setCompanies(data)
         })
     }, [])
 
     useEffect(() => {
-        fetchCompanies(company.selectedType.id, company.selectedCountry.id, company.page, 2).then(data => {
-            company.setCompanies(data.rows)
-            company.setTotalCount(data.count)
+        fetchCompanies(company.selectedType.id, company.selectedCountry.id).then(data => {
+            company.setCompanies(data)
         })
-    }, [company.page, company.selectedType, company.selectedCountry,])
+    }, [company.selectedType, company.selectedCountry,])
+
+
+
+
+    // useEffect(() => {
+    //     fetchTypes().then(data => company.setTypes(data))
+    //     fetchCountries().then(data => company.setCountries(data))
+    //     fetchCompanies(company.selectedType.id, company.selectedCountry.id).then(data => company.setCompanies(data))
+    // }, [company.selectedType, company.selectedCountry])
+
+
+
+
+
+
+    // useEffect(() => {
+    //     fetchCompanies(company.selectedType.id, company.selectedCountry.id).then(data => {
+    //         company.setCompanies(data.rows)
+    //     })
+    // }, [company.selectedType, company.selectedCountry])
 
     return (
         <Container>

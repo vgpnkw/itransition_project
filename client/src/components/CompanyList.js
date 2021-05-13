@@ -6,11 +6,11 @@ import CompanyItem from "./CompanyItem";
 
 const CompanyList = observer(() => {
     const {company} = useContext(Context)
-    console.log(company.companies)
+    console.log(company)
     // let itemsToRender;
     // if (company.companies) {
     //     itemsToRender = company.companies.map(company => {
-    //         return  <DeviceItem key={company.id} company={company}/>
+    //         return  <CompanyItem key={company.id} company={company}/>
     //     });
     // }
     //

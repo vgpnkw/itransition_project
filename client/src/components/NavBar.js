@@ -8,6 +8,17 @@ import {Button} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 import Container from "react-bootstrap/Container";
 import {useHistory} from 'react-router-dom'
+
+
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import logger from 'redux-logger'
+import {rootReducer} from "../redux/rootReducer";
+import {applyMiddleware} from "redux";
+import {changeTheme} from "../redux/actions";
+import {createStore} from "../store/createStore";
+
+
 const NavBar = observer(() => {
     const {user} = useContext(Context)
     const history = useHistory()
@@ -17,6 +28,35 @@ const NavBar = observer(() => {
         user.setIsAuth(false)
         localStorage.removeItem('token')
     }
+
+    // const themeBtn = React.findDOMNode(this.refs.theme);
+
+    // const store = createStore(
+    //     rootReducer,
+    //     composeWithDevTools(
+    //         applyMiddleware(thunk, logger)
+    //     )
+    // )
+    //
+    // themeBtn.addEventListener('click', () => {
+    //     const newTheme = document.body.classList.contains('light')
+    //         ? 'dark'
+    //         : 'light'
+    //     store.dispatch(changeTheme(newTheme))
+    // })
+    //
+    //
+    // store.subscribe(() => {
+    //     const state = store.getState()
+    //
+    //     document.body.className = state.theme.value;
+    //
+    //     themeBtn.forEach(btn => {
+    //         btn.disabled = state.theme.disabled
+    //     })
+    // })
+    //
+    // store.dispatch({ type: 'INIT_APPLICATION' })
 
     return (
         <Navbar bg="dark" variant="dark">
@@ -31,6 +71,13 @@ const NavBar = observer(() => {
                             Админ панель
                         </Button>
                         <Button
+                            className="ml-2" variant={"outline-light"}
+                            id="theme"
+                            // ref={ref => this.theme = ref}
+                            // ref = "theme"
+
+                        >Сменить тему</Button>
+                        <Button
                             variant={"outline-light"}
                             onClick={() => logOut()}
                             className="ml-2"
@@ -41,6 +88,11 @@ const NavBar = observer(() => {
                     :
                     <Nav className="ml-auto" style={{color: 'white'}}>
                         <Button variant={"outline-light"} onClick={() => history.push(LOGIN_ROUTE)}>Авторизация</Button>
+                        <Button
+                            className="ml-2" variant={"outline-light"}
+                            id="theme"
+
+                        >Сменить тему</Button>
                     </Nav>
                 }
             </Container>

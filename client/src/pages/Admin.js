@@ -23,14 +23,14 @@ const Admin = () => {
                 className="mt-4 p-2"
                 onClick={() => setCountryVisible(true)}
             >
-                Добавить бренд
+                Добавить страну
             </Button>
             <Button
                 variant={"outline-dark"}
                 className="mt-4 p-2"
                 onClick={() => setCompanyVisible(true)}
             >
-                Добавить устройство
+                Добавить компанию
             </Button>
             <CreateCountry show={countryVisible} onHide={() => setCountryVisible(false)}/>
             <CreateCompany show={companyVisible} onHide={() => setCompanyVisible(false)}/>
