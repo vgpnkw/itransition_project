@@ -1,0 +1,36 @@
+{
+  "en": {
+    "translation": {
+      "Authorization": "Authorization",
+      "Registration": "Registration",
+      "InputLogin": "Input login...",
+      "InputPassword": "Input password...",
+      "HaveAccount": "Have an account?",
+      "DHaveAccount": "Don't have an account?",
+      "Language": "Change language",
+      "Theme": "Change theme",
+      "Title": "Companies",
+      "AddType": "Add Type",
+      "AddCountry": "Add Country",
+      "AddCompany": "Add Company",
+      "Description": "Description"
+    }
+  },
+  "ru": {
+    "translation": {
+      "Authorization": "Авторизация",
+      "Registration": "Регистрация",
+      "InputLogin": "Введите логин...",
+      "InputPassword": "Введите пароль...",
+      "HaveAccount": "Уже есть аккаунт?",
+      "DHaveAccount": "Нет аккаунта?",
+      "Language": "Сменить язык",
+      "Theme": "Сменить тему",
+      "Title": "Компании",
+      "AddType": "Добавить тип",
+      "AddCountry": "Добавить страну",
+      "AddCompany": "Добавить компанию",
+      "Description": "Описание"
+    }
+  }
+}

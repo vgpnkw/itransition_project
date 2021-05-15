@@ -27,26 +27,6 @@ const Shop = observer(() => {
         })
     }, [company.selectedType, company.selectedCountry,])
 
-
-
-
-    // useEffect(() => {
-    //     fetchTypes().then(data => company.setTypes(data))
-    //     fetchCountries().then(data => company.setCountries(data))
-    //     fetchCompanies(company.selectedType.id, company.selectedCountry.id).then(data => company.setCompanies(data))
-    // }, [company.selectedType, company.selectedCountry])
-
-
-
-
-
-
-    // useEffect(() => {
-    //     fetchCompanies(company.selectedType.id, company.selectedCountry.id).then(data => {
-    //         company.setCompanies(data.rows)
-    //     })
-    // }, [company.selectedType, company.selectedCountry])
-
     return (
         <Container>
             <Row className="mt-2">

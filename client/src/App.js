@@ -6,10 +6,14 @@ import {observer} from "mobx-react-lite";
 import {Context} from "./index";
 import {check} from "./http/userAPI";
 import {Spinner} from "react-bootstrap";
+import { ThemeContext } from './context/useTheme';
+
 
 const App = observer(() => {
     const {user} = useContext(Context)
     const [loading, setLoading] = useState(true)
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
 
     useEffect(() => {
         check().then(data => {
@@ -24,8 +28,10 @@ const App = observer(() => {
 
     return (
         <BrowserRouter>
-            <NavBar />
-            <AppRouter />
+            <ThemeContext.Provider value={{ theme, setTheme }}>
+                <NavBar />
+                <AppRouter />
+            </ThemeContext.Provider>
         </BrowserRouter>
     );
 });

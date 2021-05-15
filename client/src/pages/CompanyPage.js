@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import bigStar from '../assets/bigStar.png'
-import {useParams} from 'react-router-dom'
+import {NavLink, useParams} from 'react-router-dom'
 import {fetchOneCompany} from "../http/companyAPI";
+import {useTranslation} from "react-i18next";
 
 const CompanyPage = () => {
     const [company, setCompany] = useState({info: []})
+    const { t, i18n } = useTranslation();
     const {id} = useParams()
     useEffect(() => {
         fetchOneCompany(id).then(data => setCompany(data))
@@ -34,14 +36,16 @@ const CompanyPage = () => {
                         style={{width: 300, height: 300, fontSize: 32, border: '5px solid lightgray'}}
                     >
                         <h3>От: {company.amount} руб.</h3>
-                        <Button variant={"outline-dark"}>Добавить в корзину</Button>
+                        <Button variant={"outline-dark"}>
+                            Добавить в корзину
+                        </Button>
                     </Card>
                 </Col>
             </Row>
             <Row className="d-flex flex-column m-3">
-                <h1>Характеристики</h1>
+                <h1> {t("Description")} </h1>
                 {company.info.map((info, index) =>
-                    <Row key={info.id} style={{background: index % 2 === 0 ? 'lightgray' : 'transparent', padding: 10}}>
+                    <Row key={info.id} style={{background: index % 2 === 0 ? 'dark' : 'transparent', padding: 10}}>
                         {info.title}: {info.description}
                     </Row>
                 )}

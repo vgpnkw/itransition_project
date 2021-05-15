@@ -3,11 +3,13 @@ import {Button, Container} from "react-bootstrap";
 import CreateCountry from "../components/modals/CreateCountry";
 import CreateCompany from "../components/modals/CreateCompany";
 import CreateType from "../components/modals/CreateType";
+import {useTranslation} from "react-i18next";
 
 const Admin = () => {
     const [countryVisible, setCountryVisible] = useState(false)
     const [typeVisible, setTypeVisible] = useState(false)
     const [companyVisible, setCompanyVisible] = useState(false)
+    const { t, i18n } = useTranslation();
 
     return (
         <Container className="d-flex flex-column">
@@ -16,21 +18,21 @@ const Admin = () => {
                 className="mt-4 p-2"
                 onClick={() => setTypeVisible(true)}
             >
-                Добавить тип
+                {t("AddType")}
             </Button>
             <Button
                 variant={"outline-dark"}
                 className="mt-4 p-2"
                 onClick={() => setCountryVisible(true)}
             >
-                Добавить страну
+                {t("AddCountry")}
             </Button>
             <Button
                 variant={"outline-dark"}
                 className="mt-4 p-2"
                 onClick={() => setCompanyVisible(true)}
             >
-                Добавить компанию
+                {t("AddCompany")}
             </Button>
             <CreateCountry show={countryVisible} onHide={() => setCountryVisible(false)}/>
             <CreateCompany show={companyVisible} onHide={() => setCompanyVisible(false)}/>
