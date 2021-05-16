@@ -13,7 +13,8 @@
       "AddType": "Add Type",
       "AddCountry": "Add Country",
       "AddCompany": "Add Company",
-      "Description": "Description"
+      "Description": "Description",
+      "Admin": "Admin Panel"
     }
   },
   "ru": {
@@ -30,7 +31,8 @@
       "AddType": "Добавить тип",
       "AddCountry": "Добавить страну",
       "AddCompany": "Добавить компанию",
-      "Description": "Описание"
+      "Description": "Описание",
+      "Admin": "Админ Панель"
     }
   }
 }
